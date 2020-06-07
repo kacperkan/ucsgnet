@@ -1,0 +1,24 @@
+cmd: python -m ucsgnet.generators.generate_edge_data_from_point --valid_shapes_file
+  data/hdf5/all_vox256_img_test.txt --ground_truth_folder data/pointcloud_surface
+  --reconstruction_folder data/3d_reconstructions --out_dir data/3d_edge_data
+wdir: ../..
+deps:
+- path: ucsgnet/utils.py
+  md5: 7a5b9606c73667896d2e1b2d4d637547
+- path: ucsgnet/common.py
+  md5: 858b3ec422fdc61b460b1babf3190f03
+- path: ucsgnet/generators/generate_edge_data_from_point.py
+  md5: 10b9fb009db1c347c67dbbeb5b746e76
+- path: data/hdf5
+  md5: 583f519447f78b1ef0f22c0f5546d5d9.dir
+- path: data/3d_reconstructions
+  md5: cb318f2ef3235ce97eef8d581a83c903.dir
+- path: data/pointcloud_surface
+  md5: 99b7e816a64c41dcd0d6c2a2f2becb80.dir
+outs:
+- path: data/3d_edge_data
+  cache: true
+  metric: false
+  persist: false
+  md5: 24f70916dae35e2702c9877248929152.dir
+md5: 116b9949490b1a925bd79dc715141aa4

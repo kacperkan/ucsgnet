@@ -1,0 +1,24 @@
+cmd: python -m ucsgnet.ucsgnet.reconstruct_3d_shapes --valid all_vox256_img_test.hdf5
+  --valid_shape_names all_vox256_img_test.txt --processed data/hdf5 --size 64 --weights_path
+  models/3d_64/initial/ckpts/model.ckpt --sphere_complexity 3
+wdir: ../..
+deps:
+- path: ucsgnet/ucsgnet
+  md5: 5ac61f1b0a7ac84cdcd92f42f38b9a93.dir
+- path: ucsgnet/dataset.py
+  md5: 7b9ac61ce89b404194176efb30c046c5
+- path: ucsgnet/utils.py
+  md5: 7a5b9606c73667896d2e1b2d4d637547
+- path: data/hdf5
+  md5: 583f519447f78b1ef0f22c0f5546d5d9.dir
+- path: ucsgnet/mesh_utils.c
+  md5: a563caccc13ecfef6501721de12b1a36
+- path: models/3d_64
+  md5: b8fa1cc1571bf7b0fc0bc73d0cd29657.dir
+outs:
+- path: data/3d_reconstructions
+  cache: true
+  metric: false
+  persist: false
+  md5: cb318f2ef3235ce97eef8d581a83c903.dir
+md5: 416b3461067aa12fa434cd0422d0f0ab

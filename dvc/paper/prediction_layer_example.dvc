@@ -1,0 +1,16 @@
+cmd: python -m ucsgnet.visualization.generate_example_csg_layer --out_path paper-stuff/prediction-layer-example
+wdir: ../..
+deps:
+- path: ucsgnet/visualization
+  md5: 619aee7ac1ef12220c8632aa37af0cd2.dir
+- path: ucsgnet/ucsgnet/shape_evaluators.py
+  md5: 9eda88d0df689a8df3cb32184643b718
+- path: ucsgnet/visualization/generate_example_csg_layer.py
+  md5: ad2f958e2561d904bb78edefbe0fd354
+outs:
+- path: paper-stuff/prediction-layer-example
+  cache: true
+  metric: false
+  persist: false
+  md5: 77841e1b21039557753085e666ae2e74.dir
+md5: 7d8ba294b1eb4872de3f9443f29340a7

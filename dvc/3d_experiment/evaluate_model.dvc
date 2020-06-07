@@ -1,0 +1,29 @@
+cmd: python -m ucsgnet.ucsgnet.evaluate_on_3d_data --valid_shape_names_file data/hdf5/all_vox256_img_test.txt
+  --reconstructed_shapes_folder data/3d_reconstructions --raw_shapenet_data_folder
+  data/shapenet --ground_truth_point_surface data/pointcloud_surface --edges_data_folder
+  data/3d_edge_data --out_folder paper-stuff/metrics/3d_experiment
+wdir: ../..
+deps:
+- path: ucsgnet/ucsgnet
+  md5: 01627475f1fe7eff0a13cd10cf814c8d.dir
+- path: ucsgnet/utils.py
+  md5: 7a5b9606c73667896d2e1b2d4d637547
+- path: ucsgnet/common.py
+  md5: 858b3ec422fdc61b460b1babf3190f03
+- path: data/hdf5
+  md5: 583f519447f78b1ef0f22c0f5546d5d9.dir
+- path: data/3d_reconstructions
+  md5: cb318f2ef3235ce97eef8d581a83c903.dir
+- path: data/shapenet
+  md5: 46c3838027745c0f207a8efe9a687590.dir
+- path: data/pointcloud_surface
+  md5: 99b7e816a64c41dcd0d6c2a2f2becb80.dir
+- path: data/3d_edge_data
+  md5: 24f70916dae35e2702c9877248929152.dir
+outs:
+- path: paper-stuff/metrics/3d_experiment
+  cache: true
+  metric: false
+  persist: false
+  md5: 66bfd9436721835103318f96f389b090.dir
+md5: 365a4e6a10e0cde55d1bd9004229e6cc

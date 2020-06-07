@@ -1,0 +1,25 @@
+cmd: python -m ucsgnet.ucsgnet.train_3d --train all_vox256_img_train.hdf5 --valid
+  all_vox256_img_test.hdf5 --processed data/hdf5 --experiment_name 3d --lr 0.0001
+  --batch_size 16 --num_dimensions 3 --shapes_per_type 32 --out_shapes_per_layer 12
+  --beta1 0.5 --beta2 0.99 --seed 0 --num_csg_layers 5 --full_resolution_only
+wdir: ../..
+deps:
+- path: ucsgnet/ucsgnet
+  md5: 03a7f67230496e86b4d82be2a78ddfed.dir
+- path: ucsgnet/dataset.py
+  md5: 7b9ac61ce89b404194176efb30c046c5
+- path: ucsgnet/utils.py
+  md5: 7a5b9606c73667896d2e1b2d4d637547
+- path: ucsgnet/loggers.py
+  md5: 5ebbd1667de7c8eb3fd90cfc13108be7
+- path: ucsgnet/common.py
+  md5: 858b3ec422fdc61b460b1babf3190f03
+- path: data/hdf5
+  md5: 583f519447f78b1ef0f22c0f5546d5d9.dir
+outs:
+- path: models/3d_64
+  cache: true
+  metric: false
+  persist: false
+  md5: b8fa1cc1571bf7b0fc0bc73d0cd29657.dir
+md5: 2c2f967b0c25189ea13a755549ce799b

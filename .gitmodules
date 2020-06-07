@@ -1,0 +1,3 @@
+[submodule "mitsuba-flask-service"]
+	path = mitsuba-flask-service
+	url = git@github.com:kacperkan/mitsuba-flask-service.git

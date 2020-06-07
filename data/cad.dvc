@@ -1,0 +1,7 @@
+md5: bdd519cb5d562c99aadbf9eeafc05bef
+outs:
+- md5: 6e4b0fc9b7ff0daba5329b69b9a8d81c.dir
+  path: cad
+  cache: true
+  metric: false
+  persist: false

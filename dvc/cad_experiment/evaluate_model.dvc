@@ -1,0 +1,23 @@
+cmd: python -m ucsgnet.ucsgnet.cad.eval_cad --data_path data/cad/cad.h5 --weights_path
+  models/cad_main/initial/ckpts/model.ckpt --out_dir paper-stuff/metrics/cad_experiment
+wdir: ../..
+deps:
+- path: ucsgnet/ucsgnet
+  md5: 01627475f1fe7eff0a13cd10cf814c8d.dir
+- path: ucsgnet/dataset.py
+  md5: 7b9ac61ce89b404194176efb30c046c5
+- path: ucsgnet/utils.py
+  md5: 7a5b9606c73667896d2e1b2d4d637547
+- path: ucsgnet/common.py
+  md5: 858b3ec422fdc61b460b1babf3190f03
+- path: data/cad
+  md5: 6e4b0fc9b7ff0daba5329b69b9a8d81c.dir
+- path: models/cad_main
+  md5: b3c22c6ac57b221cb3e050cf1ac7649b.dir
+outs:
+- path: paper-stuff/metrics/cad_experiment
+  cache: true
+  metric: false
+  persist: false
+  md5: dea34769ea910a7c111c71ef314e400e.dir
+md5: 91c3b2254d42f15afeeb9a4e2f869b87

@@ -1,0 +1,12 @@
+cmd: python -m ucsgnet.visualization.visualize_shapes --in_folder data/3d_reconstructions
+  --out_folder data/3d_renders --raw_folder data/shapenet
+wdir: ../..
+deps:
+- path: ucsgnet/visualization/visualize_shapes.py
+- path: data/3d_reconstructions
+- path: data/shapenet
+outs:
+- path: data/3d_renders
+  cache: true
+  metric: false
+  persist: false

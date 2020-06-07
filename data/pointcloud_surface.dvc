@@ -1,0 +1,7 @@
+md5: 3ccb8b75d77f4e3be5a5a91b541e576b
+outs:
+- md5: 99b7e816a64c41dcd0d6c2a2f2becb80.dir
+  path: pointcloud_surface
+  cache: true
+  metric: false
+  persist: false

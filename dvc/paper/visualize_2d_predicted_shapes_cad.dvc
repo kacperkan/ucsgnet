@@ -1,0 +1,19 @@
+cmd: python -m ucsgnet.ucsgnet.visualize_2d_predicted_shapes --ckpt models/cad_main/initial/ckpts/model.ckpt
+  --valid cad.h5 --data data/cad --data_type cad
+wdir: ../..
+deps:
+- path: models/cad_main
+  md5: b3c22c6ac57b221cb3e050cf1ac7649b.dir
+- path: ucsgnet/ucsgnet
+  md5: dde4716f72484310d16871561eb4a46f.dir
+- path: ucsgnet/dataset.py
+  md5: 7b9ac61ce89b404194176efb30c046c5
+- path: data/cad
+  md5: 6e4b0fc9b7ff0daba5329b69b9a8d81c.dir
+outs:
+- path: paper-stuff/2d-shapes-visualization/cad
+  cache: true
+  metric: false
+  persist: false
+  md5: 320d5a9ee204c7244b970562333e062f.dir
+md5: 5440a8f4fb5c85bb0f32957f5f2611c3

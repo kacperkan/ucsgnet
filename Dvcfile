@@ -1,0 +1,9 @@
+cmd: echo "Congratulations, all experiments finished!"
+deps:
+- path: paper-stuff/metrics/cad_experiment
+- path: paper-stuff/2d-shapes-visualization/cad
+- path: paper-stuff/example_csg_on_binary_sets
+- path: paper-stuff/prediction-layer-example
+- path: paper-stuff/metrics/3d_experiment
+- path: data/3d_renders
+- path: ucsgnet/mesh_utils.c

@@ -1,0 +1,24 @@
+cmd: python -m ucsgnet.ucsgnet.cad.train_cad --data_path data/cad/cad.h5 --experiment_name
+  cad --lr 0.0001 --batch_size 16 --num_dimensions 2 --shapes_per_type 16 --out_shapes_per_layer
+  4 --beta1 0.5 --beta2 0.99 --num_csg_layers 2
+wdir: ../..
+deps:
+- path: ucsgnet/ucsgnet
+  md5: 9cd187a55e517ae8f73ce230c9fcb753.dir
+- path: ucsgnet/dataset.py
+  md5: 7b9ac61ce89b404194176efb30c046c5
+- path: ucsgnet/utils.py
+  md5: 7a5b9606c73667896d2e1b2d4d637547
+- path: ucsgnet/loggers.py
+  md5: 5ebbd1667de7c8eb3fd90cfc13108be7
+- path: ucsgnet/common.py
+  md5: 858b3ec422fdc61b460b1babf3190f03
+- path: data/cad
+  md5: 6e4b0fc9b7ff0daba5329b69b9a8d81c.dir
+outs:
+- path: models/cad_main
+  cache: true
+  metric: false
+  persist: false
+  md5: b3c22c6ac57b221cb3e050cf1ac7649b.dir
+md5: 1b5bfd414b885ea2e348cad71d604b56

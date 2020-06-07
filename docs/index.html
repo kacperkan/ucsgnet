@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="UCSG-Net - Unsupervised Discovering of Constructive Solid Geometry Tree">
+    <meta name="author"
+        content="Kacper Kania, Maciej Zięba, Tomasz Kajdanowicz">
+    <title>
+        UCSG-Net - Unsupervised Discovering of Constructive Solid Geometry Tree
+    </title>
+    <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css2?family=B612+Mono&family=Open+Sans&display=swap"
+        rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container"></div>
+        <h2>UCSG-Net - Unsupervised Discovering<br> of Constructive Solid Geometry Tree</h2>
+    <!--            <p class="abstract">An interpretable, data-efficient, and scalable neural scene representation.</p>-->
+        <hr>
+        <p class="authors">
+            <a href="https://kania.ml"> Kacper Kania</a>,
+            <a href="https://scholar.google.com/citations?user=XmOBJZYAAAAJ&hl=en">Maciej Zięba</a>,
+	    <a href="https://scholar.google.com/citations?user=GOoaHHEAAAAJ&hl=en">Tomasz Kajdanowicz</a>
+        </p>
+
+        <div class="container">
+            <div class="btn-group" role="group" aria-label="Top menu">
+                <div class="row align-items-center">
+                    <div class="col justify-content-center text-center">
+                        <a class="btn btn-outline-primary"
+                        href="https://arxiv.org/abs/2006.09102v3">Paper</a>
+                        <a class="btn btn-outline-primary" href="https://github.com/kacperkan/ucsgnet/">Code</a>
+                        <a class="btn btn-outline-primary" href="https://drive.google.com/file/d/1aoeEALT9ejm_G6hSw2AjtvGdbvbGGLaa/">Pretrained models</a>
+                        <a class="btn btn-outline-primary" href="https://github.com/kacperkan/ucsgnet/raw/master/docs/poster.pdf">Poster</a>
+                        <a class="btn btn-outline-primary" href="https://www.dropbox.com/s/d6vm7diqfp65kyi/cad.h5?dl=0">CAD Data</a>
+                        <a class="btn btn-outline-primary" href="https://drive.google.com/file/d/158so7dnkQQNFSQTj741S3SUbuIXXRrLn/">Processed ShapeNet Data</a>
+                        <a class="btn btn-outline-primary" href="https://drive.google.com/open?id=16yiTtOrf6m4q9h3ZfhsG07JcAhLvZ0yk">ShapeNet Ground Truth</a>
+                        <a class="btn btn-outline-primary" href="https://github.com/kacperkan/mitsuba-flask-service">Renderer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <center>
+                <iframe 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/s1p4UHtUG3g" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </center>
+        </div>
+
+        <div class="section">
+            <img width="100%" src="assets/architecture.png" alt="Architecture visualization of the UCSG-Net"/>
+            <hr>
+            <p>
+                Signed distance field (SDF) is a prominent implicit
+                representation of 3D meshes. Methods that are based on such
+                representation achieved state-of-the-art 3D shape reconstruction
+                quality. However, these methods struggle to reconstruct
+                non-convex shapes. One remedy is to incorporate a constructive
+                solid geometry framework (CSG) that represents a shape as a
+                decomposition into primitives. It allows to embody a 3D shape of
+                high complexity and non-convexity with a simple tree
+                representation of Boolean operations. Nevertheless, existing
+                approaches are supervised and require the entire CSG parse tree
+                that is given upfront during the training process. On the
+                contrary, we propose a model that extracts a CSG parse tree
+                without any supervision - UCSG-Net. Our model predicts
+                parameters of primitives and binarizes their SDF representation
+                through differentiable indicator function. It is achieved
+                jointly with discovering the structure of a Boolean operators
+                tree. The model selects dynamically which operator combination
+                over primitives leads to the reconstruction of high fidelity. We
+                evaluate our method on 2D and 3D autoencoding tasks. We show
+                that the predicted parse tree representation is interpretable
+                and can be used in CAD software.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Reconstructing 2D shapes</h2>
+            <hr>
+            <p>
+                <b>UCSG-Net</b> can work in any number of dimensions of the
+                input. As a first experiment, that also serves as a proof of
+                concept, we evaluate it on the CAD dataset, prepared by <a
+                href="https://hippogriff.github.io/CSGNet/">Gopal et al.</a> We
+                ran our method and compare it to CSGNet using chamfer distance
+                and IoU with the ground truth. UCSG-Net achieves
+                state-of-the-art in quality of reconstruction and extracts
+                reasonable CSG trees. We emphasize that CSGNet reconstructs more
+                diverse CSG trees, their method is supervised and CSG operations
+                are required at each reconstruction level. We show below couple
+                2D reconstructions obtained from our method. $\cup^*, \cap^*,
+                -^*$ denote a union, intersection and difference respectively.
+            </p>
+            <div class="row align-items-center">
+                <div class="col justify-content-center text-center">
+                    <img src="assets/2d-experiment.png" alt="2D experiment" width="100%"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Reconstructing 3D shapes</h2>
+            <hr>
+            <p>
+                <b>UCSG-Net</b> can reconstruct shapes present in the ShapeNet
+                dataset. While the approach does not beat state-of-the-art in
+                the mesh reconstruction task, it achieves accuracy of the
+                reconstruction similar to other
+                reconstruction-as-shape-abstraction methods, for example <a
+                href="https://arxiv.org/abs/1612.00404">Visual Primitives</a>.
+                Additionally, thanks to our interpretable formulation of the
+                model, we can reconstruct shapes using external 3D software
+                (Blender) and evaluate CSG operations directly on meshes. This
+                allows us to quickly retrieve meshes, while still the method
+                learns on SDF representation of objects. We remind that most of
+                SDF methods rely on evaluating many points in 3D space to
+                reconstruct a mesh which is time and memory consuming. On the
+                other hand, UCSG-Net can serve as a prototyping tool for 3D
+                objects that gives instant feedback to the 3D graphic designer.
+                We show several reconstructions below. Note, that the method
+                struggles with providing diverse CSG operations and we want to
+                address it in future works. To this end, it is the first method
+                that can retrieve CSG trees without any supervision, while still
+                maintaining good reconstruction quality.
+            </p> 
+            <div class="row align-items-center">
+                <div class="col justify-content-center text-center">
+                    <img src="assets/airplane.png" alt="Predicted airplane CSG tree" width="100%"/>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col justify-content-center text-center">
+                    <img src="assets/bench.png" alt="Predicted bench CSG tree" width="100%"/>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col justify-content-center text-center">
+                    <img src="assets/chair.png" alt="Predicted chair CSG tree" width="100%"/>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col justify-content-center text-center">
+                    <img src="assets/ship.png" alt="Predicted ship CSG tree" width="100%"/>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col justify-content-center text-center">
+                    <img src="assets/sofa.png" alt="Predicted sofa CSG tree" width="100%"/>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col justify-content-center text-center">
+                    <img src="assets/table.png" alt="Predicted table CSG tree" width="100%"/>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col justify-content-center text-center">
+                    <img src="assets/tv.png" alt="Predicted tv CSG tree" width="100%"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Paper</h2>
+            <hr>
+            <div>
+                <div class="list-group">
+                    <a href="https://arxiv.org/abs/2006.09102" class="list-group-item">
+                        <img src="assets/paper-thumbnail.png" style="width:100%; margin-right:-20px; margin-top:-10px;">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Bibtex</h2>
+            <hr>
+            <div>
+                <div class="bibtexsection">
+                    @inproceedings{kania2020ucsgnet,
+                        author = {Kania, Kacper
+                                and Zi{\k{e}}ba, Maciej
+                                and Kajdanowicz, Tomasz},
+                        title = {UCSG-Net -- Unsupervised Discovering 
+                                of Constructive Solid Geometry Tree},
+                        booktitle = {arXiv},
+                        year={2020}
+                    }
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <footer>
+            <p>Template copied from <a href="https://vsitzmann.github.io/siren/">Vincent Stitzmann</a></p>
+        </footer>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+    <script>
+        MathJax = {
+            tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            svg: {
+            fontCache: 'global'
+            }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+
+</body>
+
+
+</html>

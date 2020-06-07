@@ -1,0 +1,12 @@
+cmd: python setup.py build_ext --inplace
+wdir: ..
+deps:
+- md5: 0b7be55e2b413013e186449b27283690
+  path: ucsgnet/mesh_utils.pyx
+outs:
+- path: ucsgnet/mesh_utils.c
+  cache: true
+  metric: false
+  persist: false
+  md5: a563caccc13ecfef6501721de12b1a36
+md5: dc49fb3e7a3366ede87adcd94f4c29f6

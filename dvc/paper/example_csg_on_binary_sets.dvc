@@ -1,0 +1,14 @@
+cmd: python -m ucsgnet.visualization.visualize_csg_on_binary_sets --out_dir paper-stuff/example_csg_on_binary_sets
+wdir: ../..
+deps:
+- path: ucsgnet/visualization
+  md5: 619aee7ac1ef12220c8632aa37af0cd2.dir
+- path: ucsgnet/ucsgnet/shape_evaluators.py
+  md5: 9eda88d0df689a8df3cb32184643b718
+outs:
+- path: paper-stuff/example_csg_on_binary_sets
+  cache: true
+  metric: false
+  persist: false
+  md5: 85ad3ef3d19074754fc167792d2a690e.dir
+md5: 170cd66aa4b61f9bbeb5d4a4aae9f688
